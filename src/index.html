@@ -5,6 +5,47 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title><%= htmlWebpackPlugin.options.title %></title>
+  <script>
+    // 全局配置
+
+    // 服务器地址
+    var apiConf = {
+      // 服务树模块
+      registry: 'https://registry.monitor.ifengidc.com/api/v1',
+      //registry: 'http://10.21.8.29:8000/api/v1',
+
+      // router模块
+      router: 'http://router.monitor.ifengidc.com:2222',
+
+      // event 模块
+      event: 'https://event.monitor.ifengidc.com',
+
+      // grafana
+      idc:'https://grafana.monitor.ifengidc.com:3000/',
+
+      // 发布系统server端
+      deploy: 'https://server.deploy.ifengidc.com/deploy/v1',
+
+      // 发布系统编译模块
+      build: 'https://build.deploy.ifengidc.com',
+
+      // 发布系统存储模块
+      package: 'https://package.deploy.ifengidc.com',
+    }
+
+
+    // 页面设置
+    var pageConf = {
+      login: { // login页面的配置
+        backgroundSrc: 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1508477928366&di=8d845fa9188bad113047238419d01c70&imgtype=0&src=http%3A%2F%2Fpic.58pic.com%2F58pic%2F13%2F07%2F43%2F77s58PIC6pF_1024.jpg',
+        xOffsetCenter: '10%', // 登录框中心点距离页面中心点的水平距离
+        yOffsetCenter: '-10%'  // 登录框中心店距离页面中心点的垂直距离
+      },
+      showDeploy: true, // 是否展示 发布系统
+      pluginAddrPrefix: 'git@git.ifengidc.com:plugins/', // plugin的地址前缀
+      footer_text: 'ifeng.com 版权所有 © 2016 凤凰网运维中心',  // 页面的footer文案
+    }
+  </script>
 </head>
 <body>
   <div id="root"></div>

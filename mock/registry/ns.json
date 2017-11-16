@@ -1,0 +1,247 @@
+{
+  "namespace": {
+    "id": "0",
+    "name": "loda",
+    "type": 1,
+    "machinereg": "^$",
+    "children": [
+      {
+        "id": "f18a4166-ef63-44cd-a234-4e8a70eaab33",
+        "name": "api",
+        "type": 0,
+        "machinereg": "^$",
+        "children": [ ]
+
+      },
+      {
+        "id": "cca79d69-7318-4d87-86f7-4aed68cef603",
+        "name": "pool",
+        "type": 0,
+        "machinereg": "^$",
+        "children": [ ]
+
+      },
+      {
+        "id": "91ffa753-0d40-461a-a468-70eb17aaf3b6",
+        "name": "monitor",
+        "type": 1,
+        "machinereg": "^$",
+        "children": [
+          {
+            "children": [
+              {
+                "children": [],
+                "id": "245d079a-a924-4a35-82a8-ff36fec35cc5",
+                "name": "common",
+                "type": 0,
+                "machinereg": "^$"
+              },
+              {
+                "children": [],
+                "id": "f23c1d91-2901-421b-82e6-1dc4821054d8",
+                "name": "pools",
+                "type": 0,
+                "machinereg": "^$"
+              },
+              {
+                "children": [],
+                "id": "527a56a5-f135-4e30-a609-8fa14a171df3",
+                "name": "pool",
+                "type": 0,
+                "machinereg": "^$"
+              },
+              {
+                "children": [],
+                "id": "be31fa5b-1f5d-4e89-ad00-2728f2239e42",
+                "name": "video",
+                "type": 0,
+                "machinereg": "^$"
+              },
+              {
+                "children": [],
+                "id": "54880a8e-e2cb-4892-a680-91289fff8e20",
+                "name": "advert",
+                "type": 0,
+                "machinereg": "^$"
+              },
+              {
+                "children": [],
+                "id": "ca143988-7a27-42e3-862f-f1f2a4818eaa",
+                "name": "newsclient",
+                "type": 0,
+                "machinereg": "^$"
+              },
+              {
+                "children": [],
+                "id": "ddbf48ab-266e-465c-9127-ed2a893d9fcb",
+                "name": "cmpp",
+                "type": 0,
+                "machinereg": "^$"
+              },
+              {
+                "children": [],
+                "id": "da016231-bb7a-45e3-af25-86bd8e618fe0",
+                "name": "tongji",
+                "type": 0,
+                "machinereg": "^$"
+              },
+              {
+                "children": [],
+                "id": "68665501-0f3d-48fc-9a5d-750ff2d79501",
+                "name": "loadbalance",
+                "type": 0,
+                "machinereg": "^$"
+              },
+              {
+                "children": [],
+                "id": "e81699d8-9aac-45b2-be36-6bef700d99db",
+                "name": "car",
+                "type": 0,
+                "machinereg": "^$"
+              }
+            ],
+            "id": "850122a7-fa03-4a62-9923-8423cb2f1614",
+            "name": "db",
+            "type": 1,
+            "machinereg": "^$"
+          },
+          {
+            "children": [],
+            "id": "6542d75c-8ce7-4f8a-8e14-d3049f791369",
+            "name": "nsq",
+            "type": 0,
+            "machinereg": "^$"
+          },
+          {
+            "children": [],
+            "id": "6e4364b3-6dcc-4cce-ac2a-cf1be408173a",
+            "name": "alert",
+            "type": 0,
+            "machinereg": "^$"
+          },
+          {
+            "children": [],
+            "id": "7631673f-f14b-4ae4-b48e-232df209c621",
+            "name": "registry",
+            "type": 0,
+            "machinereg": "^$"
+          },
+          {
+            "children": [],
+            "id": "89966bb8-36a4-49cf-af61-d28e6a16382c",
+            "name": "router",
+            "type": 0,
+            "machinereg": "^$"
+          },
+          {
+            "children": [
+              {
+                "children": [],
+                "id": "b898e390-e0c6-47fe-93c6-e077577b3c18",
+                "name": "adapter",
+                "type": 0,
+                "machinereg": "^$"
+              },
+              {
+                "children": [],
+                "id": "15259c9c-5426-4779-9ed3-37b73c126f53",
+                "name": "kapacitor",
+                "type": 0,
+                "machinereg": "^$"
+              }
+            ],
+            "id": "b691d00b-ef03-4bbe-a9ed-e1dc4975ab0e",
+            "name": "alarm",
+            "type": 1,
+            "machinereg": "^$"
+          },
+          {
+            "children": [],
+            "id": "c5910585-aae1-4c5e-9138-a072dd37124c",
+            "name": "lb",
+            "type": 0,
+            "machinereg": "^$"
+          },
+          {
+            "children": [],
+            "id": "72a1c3f0-e944-41a6-8abf-e14f315472ee",
+            "name": "sandbox",
+            "type": 0,
+            "machinereg": "^$"
+          },
+          {
+            "children": [],
+            "id": "f74e1e41-00d3-43ef-adc0-7c2bd324534e",
+            "name": "event",
+            "type": 0,
+            "machinereg": "^$"
+          },
+          {
+            "children": [],
+            "id": "645dfe8e-ebac-43ca-9ae4-ba18cd5f05c4",
+            "name": "etcd",
+            "type": 0,
+            "machinereg": "^$"
+          },
+          {
+            "children": [],
+            "id": "cfffc7e9-b99a-479e-a8c1-3187d4c85c62",
+            "name": "ui",
+            "type": 0,
+            "machinereg": "^$"
+          }
+        ]
+      },
+      {
+        "id": "8e9d2dcb-f039-482d-ac26-9fc16ed7b825",
+        "name": "test",
+        "type": 1,
+        "machinereg": "^$",
+        "children": [
+          {
+            "children": [ ],
+            "id": "271dbddd-2db9-43cc-a288-9481f7b2c9c0",
+            "name": "leaf",
+            "type": 0,
+            "machinereg": "^$"
+          },
+          {
+            "children": [ ],
+            "id": "81294c0f-6a9e-463e-a691-a760d553519e",
+            "name": "test123",
+            "type": 0,
+            "machinereg": "^$"
+          },
+          {
+            "children": [ ],
+            "id": "f33739e3-f765-4456-85ed-349570517c10",
+            "name": "windows",
+            "type": 0,
+            "machinereg": "^$"
+          },
+          {
+            "children": [ ],
+            "id": "3dd6d56c-a174-4510-b5f0-e212a6b4b794",
+            "name": "test-yh",
+            "type": 0,
+            "machinereg": "^$"
+          },
+          {
+            "children": [ ],
+            "id": "2b64927c-c28e-43e4-9c4d-7eadcb769ca4",
+            "name": "test-deploy",
+            "type": 0,
+            "machinereg": "^$"
+          },
+          {
+            "children": [ ],
+            "id": "164c6c34-1340-4af4-80b2-36f76512b5ac",
+            "name": "cluster-test",
+            "type": 0,
+            "machinereg": "^$"
+          }
+        ]
+      }
+    ]
+  }
+}

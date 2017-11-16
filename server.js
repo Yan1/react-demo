@@ -1,6 +1,9 @@
 const Webpack = require('webpack')
 const WebpackDevServer = require('webpack-dev-server')
 const openBrowserWebpackPlugin = require('open-browser-webpack-plugin')
+const shelljs = require('shelljs')
+
+shelljs.cp('./src/config/index.js', './dist/config.js')
 
 const PORT = process.env.PORT || 3001
 const url = 'http://localhost:' + PORT

@@ -1,0 +1,17 @@
+{
+  "name": "mock-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Yan1<yannieyh@163.com>",
+  "license": "MIT",
+  "dependencies": {
+    "json-server": "^0.12.0",
+    "lodash": "^4.17.4",
+    "node-fetch": "^1.7.3"
+  }
+}
