@@ -10,11 +10,11 @@ import * as Platform from './platform/index.bundle'
 import * as Login from './login/index.bundle'
 import * as NotFount from './NotFound.bundle'
 
-const CreateComponent = (component: any) => () => {
+const CreateComponent = (component: any) => (props: any) => {
   return (
     <Bundle load={component}>
       {
-        (Component: any) => Component ? (<div><Component /></div>) : (<div>Loading...</div>)
+        (Component: any) => Component ? (<div><Component {...props}/></div>) : (<div>Loading...</div>)
       }
     </Bundle>
   )
