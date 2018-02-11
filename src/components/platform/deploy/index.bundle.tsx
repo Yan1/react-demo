@@ -5,6 +5,15 @@ export interface DeployProps {
   
 }
 
+async function hello() {
+  const {
+      default: world
+  } = await import(/* webpackChunkName: "world" */ "./world");
+  document.body.innerText = `hello ${world}`;
+}
+
+hello();
+
 export default class Deploy extends React.Component<DeployProps, {greeting: string}> {
   constructor(props: DeployProps) {
     super(props)

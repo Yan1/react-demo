@@ -3,9 +3,14 @@ import { Link, Route } from 'react-router-dom'
 
 import { toJS } from 'mobx'
 import { inject, observer } from 'mobx-react'
+import { Button } from 'antd'
 
 import { User } from 'Platform/user/model'
 import UserStore from 'Platform/user/store'
+
+import createLazyContainer from 'Bundle'
+const End = createLazyContainer(() => import(/* webpackChunkName: "end" */ './end'))
+const Front = createLazyContainer(() => import(/* webpackChunkName: "front" */ './front'))
 
 export interface DeployProps {
   userStore: UserStore
@@ -30,6 +35,13 @@ export default class Deploy extends React.Component<DeployProps, {greeting: stri
         })
   }
 
+  componentDidMount() {
+    console.log('Monitor did mount')
+  }
+  componentWillReceiveProps() {
+    console.log('Monitor will receive')
+  }
+
   render() {
     const { userStore } = this.props
 
@@ -46,6 +58,15 @@ export default class Deploy extends React.Component<DeployProps, {greeting: stri
             ))
           }
         </ul>
+        <hr/>
+        <ul>
+          <li><Link to='/p/monitor/end'>Montir-end</Link></li>
+          <li><Link to='/p/monitor/front'>Monitor-front</Link></li>
+        </ul>
+
+        <Route exact={true} component={End} path='/p/monitor/end' />
+        <Route exact={true} component={Front} path='/p/monitor/front' />
+        <Button type="primary">Test</Button>
       </div>
     )
   }

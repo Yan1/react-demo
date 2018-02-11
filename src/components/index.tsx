@@ -1,24 +1,18 @@
 import * as React from 'react'
 import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom'
 
-import Bundle from 'Bundle'
+import createLazyContainer from 'Bundle'
 import Fetch from 'Fetch'
 
-import * as Home from './Home.bundle'
+/* import * as Home from './Home.bundle'
 import * as Platform from './platform/index.bundle'
 
 import * as Login from './login/index.bundle'
-import * as NotFount from './NotFound.bundle'
-
-const CreateComponent = (component: any) => (props: any) => {
-  return (
-    <Bundle load={component}>
-      {
-        (Component: any) => Component ? (<div><Component {...props}/></div>) : (<div>Loading...</div>)
-      }
-    </Bundle>
-  )
-}
+import * as NotFount from './NotFound.bundle' */
+const Home  = createLazyContainer(() => import(/* webpackChunkName: "home" */ './Home.bundle'))
+const Platform  = createLazyContainer(() => import(/* webpackChunkName: "platform" */ './platform/index.bundle'))
+const Login  = createLazyContainer(() => import(/* webpackChunkName: "login" */ './login/index.bundle'))
+const NotFount  = createLazyContainer(() => import(/* webpackChunkName: "notfound" */ './NotFound.bundle'))
 
 const isLoggedIn = true
 
@@ -31,15 +25,15 @@ export default class App extends React.Component<AppProps, any> {
       <BrowserRouter>
         <div>
             <Switch>
-              <Route exact={true} path='/' component={CreateComponent(Home)}/>
+              <Route exact={true} path='/' component={(Home)}/>
               <Route
                 exact={false}
                 path='/p'
-                component={isLoggedIn ? CreateComponent(Platform) : () => <Redirect to='/login' />}
+                component={isLoggedIn ? (Platform) : () => <Redirect to='/login' />}
               />
-              <Route exact={true} path='/login' component={CreateComponent(Login)}/>
-              <Route exact={true} path='/404' component={CreateComponent(NotFount)} />
-              <Route exact={false} path='*' component={CreateComponent(NotFount)} />
+              <Route exact={true} path='/login' component={(Login)}/>
+              <Route exact={true} path='/404' component={(NotFount)} />
+              <Route exact={false} path='*' component={(NotFount)} />
               {/* <Redirect from='*' to='/404' /> */}
             </Switch>
         </div>

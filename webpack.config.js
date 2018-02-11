@@ -79,6 +79,7 @@ module.exports = {
   entry: ['./src/index.tsx'],
   output: {
     filename: '[name].[chunkhash].js',
+    chunkFilename: '[name].[chunkhash].chunk.js',
     publicPath: '/', // 自动添加 css js 文件绝对路径 
     path: __dirname + '/dist'
   },
@@ -99,11 +100,11 @@ module.exports = {
       {
         test: /\.tsx?$/, 
         loader: 'awesome-typescript-loader', 
-        exclude: /\.bundle\.tsx?$/
+        // exclude: /\.bundle\.tsx?$/
       },
 
       {enforce: 'pre', test: /\.js$/, loader: 'source-map-loader'},
-      {
+      /* {
         test: /\.bundle\.tsx?$/, 
         use: [
           {
@@ -113,7 +114,7 @@ module.exports = {
             loader: 'awesome-typescript-loader'
           }
         ],
-      },
+      }, */
       {
         test: /\.(less|css)$/,
         use: ExtractTextWebpackPlugin.extract({

@@ -1,43 +1,44 @@
 import * as React from 'react'
 
-export interface BundleProps {
-  load: any,
-  children: any
+type Loader = () => Promise<any>
+
+type ReactComponent<P> = React.ComponentClass<P> | React.SFC<P> | null
+
+interface IState<P> {
+  Component: ReactComponent<P>
+  LoadingComponent: ReactComponent<any>
 }
 
-export default class Bundle extends React.Component<BundleProps, any> {
-  constructor(props: BundleProps) {
-    super(props)
-    this.state = {
-      mod: null
+function createLazyContainer<P>(loader: Loader, loadingComponent?: ReactComponent<{}>) {
+  return class extends React.Component<{}, IState<P>> {
+    public static displayName = 'LazyContainer'
+    state: IState<P> = {
+      Component: null,
+      LoadingComponent: loadingComponent || null
     }
-  }
 
-  componentWillMount() {
-    this.load(this.props);
-  }
-
-  componentWillReceiveProps(nextProps: any) {
-    if (nextProps.load !== this.props.load) {
-      this.load(nextProps);
+    componentWillMount() {
+      if (!this.state.Component) {
+        loader()
+          .then(module => module.default || module)
+          .then((Component: ReactComponent<P>) => this.setState({ Component }))
+      }
     }
-  }
 
-  load(props: any) {
-    this.setState({ mod: null });
-    props.load((mod: any) => {
-      // handle both es import and cjs
-      this.setState({ mod: mod.default ? mod.default : mod });
-    })
-  }
+    public render() {
+      const { Component, LoadingComponent } = this.state
 
-  render() {
-    return (
-      <div>
-        {
-          this.props.children(this.state.mod)
-        }
-      </div>
-    );
+      if (Component) {
+        return <Component {...this.props} />
+      }
+
+      if (LoadingComponent) {
+        return <LoadingComponent />
+      }
+
+      return null
+    }
   }
 }
+
+export default createLazyContainer

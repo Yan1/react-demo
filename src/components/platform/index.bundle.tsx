@@ -1,24 +1,26 @@
 import * as React from 'react'
 import { inject, observer } from 'mobx-react'
-import { Link, Route, Redirect } from 'react-router-dom'
+import { Link, Route, Redirect, Switch } from 'react-router-dom'
 import { Button } from 'antd'
 
-import Bundle from 'Bundle'
+import createLazyContainer from 'Bundle'
 
 import Routes from 'Utils/Routes'
 const { monitor, deploy } = Routes
 
-import UserStore from 'User/store'
+const Monitor = createLazyContainer(() => import(/* webpackChunkName: "monitor" */ './monitor/index.bundle'))
+const Deploy = createLazyContainer(() => import(/* webpackChunkName: "deploy" */ './deploy/index.bundle'))
 
-const CreateComponent = (component: any) => () => {
-  return (
-    <Bundle load={component}>
-      {
-        (Component: any) => Component ? (<div><Component /></div>) : (<div>Loading...</div>)
-      }
-    </Bundle>
-  )
-}
+// async function hello() {
+//   const {
+//       default: world
+//   } = await import(/* webpackChunkName: "world" */ "./world");
+//   document.body.innerText = `hello ${world}`;
+// }
+
+// hello();
+
+import UserStore from 'User/store'
 
 export interface PlatformProps {
   userStore: UserStore
@@ -43,6 +45,12 @@ export default class Platform extends React.Component<PlatformProps, {greeting: 
     .then(data => {
       console.log(data)
     })
+
+    console.log('Platform did mount')
+  }
+
+  componentWillReceiveProps() {
+    console.log('Platform will receive')
   }
 
   handleLogout = () => {
@@ -64,8 +72,10 @@ export default class Platform extends React.Component<PlatformProps, {greeting: 
           <li><Link to={deploy.path}>Deploy</Link></li>
         </ul>
         {mobile}<Button onClick={this.handleLogout}>Logout</Button>
-        <Route exact={true} path={monitor.path} component={CreateComponent(monitor.component)} />
-        <Route exact={true} path={deploy.path} component={CreateComponent(deploy.component)} />
+        <Switch>
+          <Route exact={false} path={monitor.path} component={(Monitor)} />
+          <Route exact={true} path={deploy.path} component={(Deploy)} />
+        </Switch>
       </div>
     )
   }
